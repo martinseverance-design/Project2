@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 import { useEffect , useState } from "react";
 function App() {
@@ -28,11 +28,53 @@ function App() {
   return (
     <table>
       <tbody>
+        <tr className = "titles">
+          <td>
+            Institution
+          </td>
+          <td>
+            City
+          </td>
+          <td>
+            Country
+          </td>
+          <td>
+            Year Awarded
+          </td>
+          <td>
+            Project Title
+          </td>
+          <td>
+            Division
+          </td>
+          <td>
+            Primary Discipline
+          </td>
+        </tr>
       {grant.map((grant, index) => (
         <tr key = {grant["@AppNumber"]}>
-          <td>{grant.Institution}</td>
           <td>
             {grant.Institution}
+          </td>
+          <td>
+            {grant.InstCity}
+          </td>
+          <td>
+            {grant.InstCountry}
+          </td>
+
+          <td>
+            {grant.YearAwarded}
+          </td>
+          <td>
+            {grant.ProjectTitle}
+          </td>
+
+          <td>
+            {grant.Division}
+          </td>
+          <td>
+            {grant.PrimaryDiscipline}
           </td>
         </tr>
       ))}
