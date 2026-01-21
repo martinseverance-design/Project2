@@ -4,7 +4,7 @@ import TableHead from "./TableHead";
 import ContentMaker from './ContentMaker';
 import { useEffect , useState } from "react";
 function App() {
-  const[grantArr, setGrant] = useState([{}])
+  const[grantArr, setGrantArr] = useState([])
   useEffect(() => 
   {
     async function fetchGrant()
@@ -19,7 +19,7 @@ function App() {
             //console.log("to")
             //console.log(result)
             //console.log(result.Grants.Grant)
-            setGrant(result.Grants.Grant)
+            setGrantArr(result.Grants.Grant)
          }
 
 
@@ -167,3 +167,36 @@ let sumLocal = (sumK + sumI + sumM + sumO + sumT + sumW + sumV)/(K.length+I.leng
 }
 
 export default App;
+
+/*<table>
+      <TableHead/>
+      <tbody>
+      {grant.map((grant, index) => (
+        <tr key = {["@AppNumber"]}>
+          <td>
+            {props.Institution}
+          </td>
+          <td>
+            {props.InstCity}
+          </td>
+          <td>
+            {props.InstCountry}
+          </td>
+
+          <td>
+            {props.YearAwarded}
+          </td>
+          <td>
+            {props.ProjectTitle}
+          </td>
+
+          <td>
+            {props.Division}
+          </td>
+          <td>
+            {props.PrimaryDiscipline}
+          </td>
+        </tr>
+      ))}
+      </tbody>
+    </table>)*/
