@@ -19,14 +19,14 @@ if(n == 1){
             {grant.InstCity}
           </td>
           <td>
-            {grant.InstCountry}
+            {grant.InstState}
           </td>
 
           <td>
             {grant.YearAwarded}
           </td>
           <td>
-            {grant.ProjectTitle}
+            {grant.PrimaryDiscipline}
           </td>
 
           <td>
@@ -70,6 +70,134 @@ if(n == 1){
                 ${ave}
               </td>
             </tr>)
+          )
+        }
+        else if(n == 4){
+          let year = grantArr.filter((grant) => grant.YearAwarded.includes("2018"))
+          return(
+            year.map((grant, index) =>
+
+        <tr key = {grant["@AppNumber"]}>
+          <td>
+            {grant.Institution}
+          </td>
+          <td>
+            {grant.InstCity}
+          </td>
+          <td>
+            {grant.InstState}
+          </td>
+
+          <td>
+            {grant.YearAwarded}
+          </td>
+          <td>
+            {grant.PrimaryDiscipline}
+          </td>
+
+          <td>
+            {grant.Division}
+          </td>
+          <td>
+            {grant.PrimaryDiscipline}
+          </td>
+        </tr>)
+          )
+        }
+        else if(n == 5){
+          let year = grantArr.filter((grant) => grant.YearAwarded.includes("2019"))
+          return(
+            year.map((grant, index) =>
+
+        <tr key = {grant["@AppNumber"]}>
+          <td>
+            {grant.Institution}
+          </td>
+          <td>
+            {grant.InstCity}
+          </td>
+          <td>
+            {grant.InstState}
+          </td>
+
+          <td>
+            {grant.YearAwarded}
+          </td>
+          <td>
+            {grant.PrimaryDiscipline}
+          </td>
+
+          <td>
+            {grant.Division}
+          </td>
+          <td>
+            {grant.PrimaryDiscipline}
+          </td>
+        </tr>)
+          )
+        }
+        else if(n == 6){
+          let year = grantArr.filter((grant) => grant.Division.includes("Challenge Programs"))
+          return(
+            year.map((grant, index) =>
+
+        <tr key = {grant["@AppNumber"]}>
+          <td>
+            {grant.Institution}
+          </td>
+          <td>
+            {grant.InstCity}
+          </td>
+          <td>
+            {grant.InstState}
+          </td>
+
+          <td>
+            {grant.YearAwarded}
+          </td>
+          <td>
+            {grant.PrimaryDiscipline}
+          </td>
+
+          <td>
+            {grant.Division}
+          </td>
+          <td>
+            {grant.PrimaryDiscipline}
+          </td>
+        </tr>)
+          )
+        }
+        else if(n == 7){
+          let year = grantArr.filter((grant) => grant.Division.includes("Research Programs"))
+          return(
+            year.map((grant, index) =>
+
+        <tr key = {grant["@AppNumber"]}>
+          <td>
+            {grant.Institution}
+          </td>
+          <td>
+            {grant.InstCity}
+          </td>
+          <td>
+            {grant.InstState}
+          </td>
+
+          <td>
+            {grant.YearAwarded}
+          </td>
+          <td>
+            {grant.PrimaryDiscipline}
+          </td>
+
+          <td>
+            {grant.Division}
+          </td>
+          <td>
+            {grant.PrimaryDiscipline}
+          </td>
+        </tr>)
           )
         }
 }

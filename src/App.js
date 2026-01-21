@@ -24,7 +24,7 @@ function App() {
 
 
     }
-    
+
     fetchGrant();
     },[]);
 
@@ -41,6 +41,18 @@ function App() {
       }
       if(value == 3){
         setNum(3);
+      }
+      if(value == 4){
+        setNum(4)
+      }
+      if(value == 5){
+        setNum(5)
+      }
+      if(value == 6){
+        setNum(6)
+      }
+      if(value == 7){
+        setNum(7)
       }
     }
 
@@ -144,6 +156,22 @@ let sumtwo = sum/grantArr.length;
 let sumLocal = (sumK + sumI + sumM + sumO + sumT + sumW + sumV)/(K.length+I.length+M.length+O.length+T.length+V.length+W.length)
 
 
+let grantList = grantArr;
+
+
+const[temp, setTemp] = useState(0)
+
+function sortAZ(){
+  grantList.sort((a, b) => {
+    return(a.Institution.localeCompare(b.Institution))
+  })
+  setTemp(1)
+}
+
+let yearOne = grantArr.filter((grant) => grant.YearAwarded.includes("2018"))
+let yearTwo = grantArr.filter((grant) => grant.YearAwarded.includes("2019"))
+let challenge = grantArr.filter((grant) => grant.Division.includes("Challenge Programs"))
+let research = grantArr.filter((grant) => grant.Division.includes("Research Programs"))
 
 
 
@@ -151,15 +179,29 @@ let sumLocal = (sumK + sumI + sumM + sumO + sumT + sumW + sumV)/(K.length+I.leng
   return (
     
   <div>
+    <section>
     <select name="Compare" onChange={handleChange}>
     <option value= {1}>Show All Data</option>
   <option value={2}>Kentucky vs. Regional</option>
   <option value= {3} >Kentucky vs. National</option>
-</select>
+  </select>
+  <select name="yearCompare" onChange={handleChange}>
+    <option value = {1}>No Year Selected</option>
+    <option value= {4}>2018 Amount:{yearOne.length}</option>
+    <option value={5}>2019 Amount:{yearTwo.length}</option>
+  </select>
+  <select name="DivisionCompare" onChange={handleChange}>
+    <option value = {1}>No Division Selected</option>
+    <option value= {6}>Challenge Amount:{challenge.length}</option>
+    <option value={7}>Research Amount:{research.length}</option>
+  </select>
+  <button onClick = {sortAZ}>Sort A-Z by Institution</button>
+  <button onClick = {() => window.location.reload()}>Reset</button>
+  </section>
     <table>
       <TableHead number = {getNum()}/>
       <tbody>
-      <ContentMaker LocalAve = {sumLocal} average = {sumtwo} Blist = {grantArr} number = {getNum()}/>
+      <ContentMaker LocalAve = {sumLocal} average = {sumtwo} Blist = {grantList} number = {getNum()}/>
           </tbody>
       </table>
     </div>
@@ -167,36 +209,3 @@ let sumLocal = (sumK + sumI + sumM + sumO + sumT + sumW + sumV)/(K.length+I.leng
 }
 
 export default App;
-
-/*<table>
-      <TableHead/>
-      <tbody>
-      {grant.map((grant, index) => (
-        <tr key = {["@AppNumber"]}>
-          <td>
-            {props.Institution}
-          </td>
-          <td>
-            {props.InstCity}
-          </td>
-          <td>
-            {props.InstCountry}
-          </td>
-
-          <td>
-            {props.YearAwarded}
-          </td>
-          <td>
-            {props.ProjectTitle}
-          </td>
-
-          <td>
-            {props.Division}
-          </td>
-          <td>
-            {props.PrimaryDiscipline}
-          </td>
-        </tr>
-      ))}
-      </tbody>
-    </table>)*/

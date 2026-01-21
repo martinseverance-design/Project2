@@ -1,7 +1,7 @@
 
 function TableHead(props){
   let n = props.number
-  if(n == 1){
+  if(n == 1 || n == 4 || n == 5 || n == 6 || n == 7){
     return(
         <thead>
         <tr>
@@ -12,13 +12,13 @@ function TableHead(props){
             City
           </th>
           <th>
-            Country
+            State
           </th>
           <th>
             Year Awarded
           </th>
           <th>
-            Project Title
+            Project Discipline
           </th>
           <th>
             Division
